@@ -122,22 +122,24 @@ class StatsController extends Controller
 		$result = DB::select("SELECT height, size FROM blocks order by height desc limit 1000;");
 
 		$rs = array_column($result, "size");
-		
+
+		$arr100 = array_slice($rs,0,100);
 		$arr200 = array_slice($rs,0,200);
 		$arr400 = array_slice($rs,0,400);
 		$arr600 = array_slice($rs,0,600);
-		$arr800 = array_slice($rs,0,800);		
-		
+		$arr800 = array_slice($rs,0,800);
+
+		$medians["median100"] = StatsController::calculateMedian($arr100);
 		$medians["median200"] = StatsController::calculateMedian($arr200);
 		$medians["median400"] = StatsController::calculateMedian($arr400);
 		$medians["median600"] = StatsController::calculateMedian($arr600);
 		$medians["median800"] = StatsController::calculateMedian($arr800);
 		$medians["median1000"] = StatsController::calculateMedian($rs);
-		
+
 		return view('stats.block_medians', compact('medians'));
-		
+
 	}
-	
+
 	public static function showBlockchainGrowth(){
 		
 		$growth = DB::select("SELECT * FROM vw_blockchain_size_by_month order by month;");
