@@ -21,13 +21,19 @@ Route::get('/block/{block}', 'BlockexplorerController@showBlock');
 
 Route::get('/tx/{transaction}', 'BlockexplorerController@showTransaction');
 
-Route::get('/stats', 'StatsController@index');
-Route::get('/stats/blockchain-growth', 'StatsController@showBlockchainGrowth');
-Route::get('/stats/transaction-stats', 'StatsController@showTransactionsStats');
-Route::get('/stats/transactions/{period}/{records}', 'StatsController@showTransactionStats');
-Route::get('/stats/block-medians', 'StatsController@showBlockMedians');
-Route::get('/stats/ring-size', 'StatsController@showRingSize');
-Route::get('/stats/ringct-transactions', 'StatsController@showRingCTTransactions');
+
+Route::group(['prefix' => 'stats'], function () {
+
+	Route::get('', 'StatsController@index');
+	Route::get('blockchain-growth', 'StatsController@showBlockchainGrowth');
+	Route::get('transaction-stats', 'StatsController@showTransactionsStats');
+	Route::get('transactions/{period}/{records}', 'StatsController@showTransactionStats');
+//	Route::get('block-medians', 'StatsController@showBlockMedians');
+	Route::get('block-medians', 'StatsController@showBlockMediansHistory');
+	Route::get('ring-size', 'StatsController@showRingSize');
+	Route::get('ringct-transactions', 'StatsController@showRingCTTransactions');
+});
+
 
 
 Route::get('/richlist', 'StaticPagesController@richlist');
@@ -38,8 +44,6 @@ Route::get('/api/get_block_header/{block}', 'APIController@getBlockHeader');
 Route::get('/api/get_block_data/{block}', 'APIController@getBlockData');
 Route::get('/api/get_transaction_data/{hash}', 'APIController@getTransactionData');
 Route::get('/api/is_key_image_spent/{hash}', 'APIController@isKeyImageSpent');
-
-
 
 
 /*

@@ -8,10 +8,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<!--	<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
-		<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/grayscale.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
+
 		<link rel="icon" type="image/png" href="{{ URL::asset('img/favico_monero.ico') }}">
+
+		<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/grayscale.css') }}">
+
+	        @if (Route::current()->getPrefix() == '/stats')
+		<link rel="stylesheet" href="{{ URL::asset('css/line.min.css') }}">
+	        @endif
 
 	</head>
 	<body>
