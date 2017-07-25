@@ -16,7 +16,7 @@ class CreateBlockMedianTable extends Migration
           $table->unsignedBigInteger('block_height');
           $table->decimal('median', 18, 5);
 
-          $table->primary('height');
+          $table->primary('block_height');
         });
     }
 
