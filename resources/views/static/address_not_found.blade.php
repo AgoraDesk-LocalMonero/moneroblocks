@@ -14,12 +14,12 @@
 <div class="row">
   <div class="col-lg-12">
     <p>
-      For a moment there it seemed that you were trying to peak into this Monero adress:<br/>
+      For a moment there it seemed that you were trying to peek into this Monero address:<br/>
       <span class="tiny">{{ $query }}</span><br/>
       No?
     </p>
     <p>
-      Hmmm... it really looks you were, like, trying to check out this dude's balance.
+      Hmmm... it really looks like you were, like, trying to check out this dude's balance.
     </p>
     <p>
       Well, 
