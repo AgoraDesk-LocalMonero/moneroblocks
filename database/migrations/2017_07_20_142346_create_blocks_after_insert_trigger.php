@@ -17,7 +17,7 @@ class CreateBlocksAfterInsertTrigger extends Migration
         		TRIGGER `blocks_after_insert` AFTER INSERT
 		        ON blocks
         		        FOR EACH ROW BEGIN
-                		        SET @median = (select AVG(size) median_size from (select size from (SELECT size FROM blocks WHERE height < NEW.height ORDER BY height desc LIMIT 100) t ORDER BY size limit 49,2) tt);
+                		        SET @median = COALESCE((select AVG(size) median_size from (select size from (SELECT size FROM blocks WHERE height < NEW.height ORDER BY height desc LIMIT 100) t ORDER BY size limit 49,2) tt), 0);
 					DELETE FROM block_median WHERE block_height >= NEW.height;
                         		INSERT INTO block_median (block_height, median) VALUES(NEW.height, @median);
 		        END

@@ -14,15 +14,16 @@ class CreateOutputsTable extends Migration
     {
         Schema::create('vout', function (Blueprint $table) {
           $table->engine = 'MYISAM';
-          
+
           $table->unsignedBigInteger('bl_height');
           $table->unsignedBigInteger('txid');
-          $table->unsignedBigInteger('voutid');          
+          $table->unsignedBigInteger('voutid');
           $table->unsignedBigInteger('amount');
-          $table->unsignedBigInteger('global_index');          
+          $table->unsignedBigInteger('true_amount')->nullable();
+          $table->unsignedBigInteger('global_index');
           $table->string('public_key',128);
           $table->unsignedBigInteger('amount_index');
-          
+
           $table->index(['bl_height', 'txid', 'voutid']);
           $table->primary(['amount', 'amount_index']);
         });
