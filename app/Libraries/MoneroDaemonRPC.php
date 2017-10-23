@@ -143,7 +143,7 @@ class MoneroDaemonRPC {
 	function rpc_call($data_string, $path){
 		$url = $this->__url.$path;
 		$ch = curl_init($url);
-		
+
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -19,7 +19,7 @@ class ComposerServiceProvider extends ServiceProvider
       'explorer.network_stats', function ($view) {
       $coin = Config::get('app.denomination');
       
-      $result = DB::select('SELECT height, coins_generated, block_difficulty, timestamp, tx.amount as reward FROM blocks join transactions tx ON height = tx.bl_height AND coinbase_tx = 1 ORDER BY height DESC LIMIT 1;');
+      $result = DB::select('SELECT height, coins_generated, block_difficulty, timestamp, tx.amount as reward FROM blocks join transactions tx ON height = tx.bl_height AND coinbase_tx = 1 ORDER BY bl_height DESC LIMIT 1;');
 
       $net_stats['diff'] = $result[0]->block_difficulty;
       $net_stats['hashrate'] = round($result[0]->block_difficulty/120,2);

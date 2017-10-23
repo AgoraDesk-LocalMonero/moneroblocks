@@ -6,7 +6,7 @@
 		<meta name="keywords" content="monero, block, transaction, payment id, blockexplorer, richlist, hashrate, difficulty, explorer, blockchain, xmr">
 		<meta name="description" content="Monero blockchain explorer -  XMR blocks, transactions, payment ids, hashrate, emission. We show it all. ">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<!--	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
 	<!--	<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
 
 		<link rel="icon" type="image/png" href="{{ URL::asset('img/favico_monero.ico') }}">

@@ -11,7 +11,7 @@ class APIController extends Controller
 
 	public function getStats() {
 
-		$stats = DB::select('SELECT height, coins_generated, block_difficulty, timestamp, tx.amount as reward FROM blocks join transactions tx ON height = tx.bl_height AND coinbase_tx = 1 ORDER BY height DESC LIMIT 1;');
+		$stats = DB::select('SELECT height, coins_generated, block_difficulty, timestamp, tx.amount as reward FROM blocks join transactions tx ON height = tx.bl_height AND coinbase_tx = 1 ORDER BY bl_height DESC LIMIT 1;');
 		
 		$data['difficulty'] = $stats[0]->block_difficulty;
     $data['height'] = $stats[0]->height;
