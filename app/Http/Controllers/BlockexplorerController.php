@@ -33,7 +33,8 @@ class BlockexplorerController extends Controller
 		$higher = ($height==0 ? -1 : $page_height+$block_limit);	//$hight=0 means we are on the main page, no need to see higher blocks
 		$lower = $page_height-$block_limit;
 
-		$transaction_pool = json_decode($rpc->getTransactionPool(), false);
+//		$transaction_pool = json_decode($rpc->getTransactionPool(), false);
+
 		if(isset($transaction_pool->transactions)){
 			$transaction_pool = $transaction_pool->transactions;
 		}else{

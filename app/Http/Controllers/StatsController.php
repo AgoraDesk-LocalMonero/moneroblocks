@@ -19,26 +19,34 @@ class StatsController extends Controller
 
 	public function index()
 	{
-		return $this->showRingCTTransactions();
+//		return $this->showRingCTTransactions();
+		return $this->showBlockchainGrowth();
+	}
+
+	public static function showAverageTransactions($period = 365){
+		$transactions = [];
+		$transactions = DB::select("select day, average_tx from vwTransactionsPerBlock limit ?;", [$period]);
+		asort($transactions);
+		return view('stats.transaction_history', compact('transactions'));
 	}
 
 	public static function showRingCTTransactions(){
 		$ringct = [];
-		
+
 		$ct = DB::select("SELECT data, hora, txv1, txv2, txv2/total as ratio FROM vwRingCTTxCountByHour order by data desc, hora desc limit 24;");
 		array_push($ringct, $ct);
 
 		$ct = DB::select("SELECT data, txv1, txv2, txv2/total as ratio FROM vwRingCTTxCountByDay order by data desc limit 24;");
-		array_push($ringct, $ct);				
-		
+		array_push($ringct, $ct);
+
 		return view('stats.ringct_transactions', compact('ringct'));
 	}
-	
+
 	public static function showRingSize(){
-		
+
 		$ring_size = [];
-		
-    $number_of_days = 1; //last day
+
+		$number_of_days = 1; //last day
     $m = DB::select("Call get_mixin_stats(?);", [$number_of_days]);
 		array_push($ring_size, $m[0]);
     

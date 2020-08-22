@@ -4,4 +4,5 @@
   <li><a href="{{ url('stats/transaction-stats') }}">transactions</a></li>
   <li><a href="{{ url('stats/block-medians') }}">block medians</a></li>
   <li><a href="{{ url('stats/blockchain-growth') }}">blockchain growth</a></li>
+  <li><a href="{{ url('stats/transaction-average') }}">transactions per block</a></li>
 </ul>

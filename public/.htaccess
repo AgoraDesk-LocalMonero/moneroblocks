@@ -3,7 +3,12 @@
         Options -MultiViews
     </IfModule>
 
+    Header set Access-Control-Allow-Origin "*"
+
     RewriteEngine On
+
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

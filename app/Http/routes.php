@@ -32,6 +32,7 @@ Route::group(['prefix' => 'stats'], function () {
 	Route::get('block-medians', 'StatsController@showBlockMediansHistory');
 	Route::get('ring-size', 'StatsController@showRingSize');
 	Route::get('ringct-transactions', 'StatsController@showRingCTTransactions');
+	Route::get('transaction-average', 'StatsController@showAverageTransactions');
 });
 
 

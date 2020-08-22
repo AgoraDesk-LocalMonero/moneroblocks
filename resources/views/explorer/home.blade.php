@@ -3,9 +3,9 @@
 @section('content')
 
 @include('explorer.network_stats')
-
+@if (1<0)
 @include('explorer.transaction_pool')
-
+@endif
 	<div class="row">
       <div class="col-xs-12 col-lg-12">
         <h3 class="page-header"><i class="fa fa-chain fa-fw"></i> Latest blocks</h3>
