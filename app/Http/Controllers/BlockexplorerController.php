@@ -95,6 +95,7 @@ class BlockexplorerController extends Controller
     $outputs = DB::select('select bl_height, txid, voutid, coalesce(true_amount,amount) as amount, public_key from vout where bl_height = ? and txid = ?', [$bl_height, $tx_id]);
     
     $inputs = DB::select('select * from vin where bl_height = ? and txid = ?', [$bl_height, $tx_id]);
+    $offsets = (object)[]; 
 
 		foreach($inputs as &$input){
 			$offsets = (object)[]; 
